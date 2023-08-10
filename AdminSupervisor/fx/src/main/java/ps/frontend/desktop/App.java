@@ -1,6 +1,5 @@
 package ps.frontend.desktop;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -19,18 +18,23 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        Parent root = FXMLLoader.load(getClass().getResource("FirstView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("AdminFirstView.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        Properties prop;
-		prop = new Properties();
-		prop.load(new FileInputStream(new File("C:\\Users\\Kezija\\Desktop\\AdminSupervisor\\fx\\src\\main\\config.properties")));
-		BASE_URL = prop.getProperty("BASE_URL");
-        launch(args);
+        String propertiesFilePath = System.getProperty("user.dir") + "\\AdminSupervisor\\fx\\src\\main\\config.properties";
+        
+        try (FileInputStream fileInputStream = new FileInputStream(propertiesFilePath)) {
+            Properties prop = new Properties();
+            prop.load(fileInputStream);
+            BASE_URL = prop.getProperty("BASE_URL");
+            launch(args);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

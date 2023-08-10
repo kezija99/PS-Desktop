@@ -6,6 +6,7 @@ module ps.frontend.desktop {
 
     opens ps.frontend.desktop to javafx.fxml, com.google.gson;
     opens ps.frontend.desktop.controllers;
+    opens ps.frontend.desktop.models;
     exports ps.frontend.desktop;
     exports ps.frontend.desktop.controllers;
 }
