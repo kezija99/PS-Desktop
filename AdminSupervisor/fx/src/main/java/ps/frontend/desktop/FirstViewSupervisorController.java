@@ -8,7 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
-public class FirstViewSupervisorController {
+public class FirstViewSupervisorController implements Initializable{
 
     @FXML
     private Button close;
@@ -36,6 +36,10 @@ public class FirstViewSupervisorController {
 
     public void close() {
         System.exit(0);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
     }
 
     

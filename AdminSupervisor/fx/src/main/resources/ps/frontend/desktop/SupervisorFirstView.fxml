@@ -44,7 +44,7 @@
 
 <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="755.0" prefWidth="1212.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ps.frontend.desktop.FirstViewSupervisorController">
   <children>
-    <AnchorPane fx:id="main_form" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="755.0" prefWidth="1212.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="mainForm" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="755.0" prefWidth="1212.0" VBox.vgrow="ALWAYS">
          <children>
             <AnchorPane layoutX="206.0" layoutY="31.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="729.0" prefWidth="1007.0" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
                <children>
@@ -157,6 +157,7 @@
                   </Label>
                </children>
             </AnchorPane>
+            <AnchorPane fx:id="usersForm" layoutX="206.0" layoutY="31.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="729.0" prefWidth="1007.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
          </children>
     </AnchorPane>
   </children>
