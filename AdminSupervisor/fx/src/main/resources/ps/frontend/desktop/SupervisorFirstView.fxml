@@ -42,91 +42,117 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="755.0" prefWidth="1212.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ps.frontend.desktop.FirstViewSupervisorController">
   <children>
-    <AnchorPane maxHeight="-1.0" prefHeight="546.0" prefWidth="661.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="main_form" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="755.0" prefWidth="1212.0" VBox.vgrow="ALWAYS">
          <children>
-            <AnchorPane layoutX="168.0" layoutY="31.0" prefHeight="498.0" prefWidth="492.0">
+            <AnchorPane layoutX="206.0" layoutY="31.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="729.0" prefWidth="1007.0" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
                <children>
-                  <ImageView fitHeight="329.0" fitWidth="495.0" layoutX="14.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="490.0" fitWidth="880.0" layoutX="30.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="114.9555541992188" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="92.0" AnchorPane.topAnchor="149.0">
                      <image>
-                        <Image url="@Projektni%20Desktop/PS-Desktop/AdminSupervisor/fx/src/main/resources/bus.jpg" />
+                        <Image url="@../../../bus.jpg" />
                      </image>
                   </ImageView>
-                  <Label layoutX="214.0" layoutY="43.0" text="E-Ticket" textAlignment="CENTER">
+                  <Label layoutX="434.0" layoutY="42.0" text="E-Ticket" textAlignment="CENTER">
                      <font>
-                        <Font name="System Bold Italic" size="24.0" />
+                        <Font name="System Bold Italic" size="36.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane layoutY="32.0" prefHeight="497.0" prefWidth="167.0" style="-fx-background-color: #9c9494;">
+            <AnchorPane layoutY="32.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="210.0" style="-fx-background-color: #9c9494;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="40.0">
                <children>
-                  <Button layoutX="8.0" layoutY="200.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Transakcije" textAlignment="CENTER">
+                  <Button fx:id="transactions" layoutX="10.0" layoutY="290.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="185.0" text="Transakcije" textAlignment="CENTER">
                      <graphic>
                         <FontAwesomeIcon glyphName="MONEY" />
-                     </graphic></Button>
-                  <Label layoutX="48.0" layoutY="92.0" text="Dobrodošli," textAlignment="CENTER" textFill="WHITE">
+                     </graphic>
                      <font>
-                        <Font size="14.0" />
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="56.0" layoutY="107.0" text="Dobrodošli," textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="48.0" layoutY="112.0" text="Supervizor" textAlignment="CENTER" textFill="WHITE">
+                  <Label layoutX="58.0" layoutY="138.0" text="Supervizor" textAlignment="CENTER" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Separator layoutX="8.0" layoutY="139.0" prefHeight="8.0" prefWidth="150.0" />
-                  <Button layoutX="8.0" layoutY="160.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Korisnici" textAlignment="CENTER">
+                  <Separator layoutX="4.0" layoutY="187.0" prefHeight="8.0" prefWidth="188.0" />
+                  <Button fx:id="users" layoutX="10.0" layoutY="210.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="185.0" text="Korisnici" textAlignment="CENTER">
                      <graphic>
                         <FontAwesomeIcon glyphName="USERS" />
-                     </graphic></Button>
-                  <Button layoutX="14.0" layoutY="399.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="4.0">
+                     </graphic>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="14.0" layoutY="399.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="4.0">
                      <graphic>
                         <FontAwesomeIcon glyphName="SIGN_OUT" size="2em" />
                      </graphic>
-                  </Button>
-                  <Label layoutX="51.0" layoutY="468.0" text="Odjava" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="13.0" />
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="72.0" layoutY="686.0" text="Odjava" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="50.0" layoutY="80.0" size="7em" />
-                  <Button layoutX="8.0" layoutY="240.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Kontroleri" textAlignment="CENTER">
+                  <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="68.0" layoutY="88.0" size="7em" />
+                  <Button fx:id="controlers" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="185.0" text="Kontroleri" textAlignment="CENTER">
                      <graphic>
                         <FontAwesomeIcon glyphName="USERS" />
-                     </graphic></Button>
-                  <Button layoutX="8.0" layoutY="280.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Terminali" textAlignment="CENTER">
+                     </graphic>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="terminals" layoutX="10.0" layoutY="450.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="185.0" text="Terminali" textAlignment="CENTER">
                      <graphic>
                         <FontAwesomeIcon glyphName="MOBILE" size="1.5em" />
-                     </graphic></Button>
-                  <Button layoutX="8.0" layoutY="320.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Zahtjevi" textAlignment="CENTER">
+                     </graphic>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="requests" layoutX="10.0" layoutY="530.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="185.0" text="Zahtjevi" textAlignment="CENTER">
                      <graphic>
                         <FontAwesomeIcon glyphName="QUESTION" size="1.5em" />
-                     </graphic></Button>
-                  <Button layoutX="8.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Linije" textAlignment="CENTER">
-                     <graphic>
-                        <FontAwesomeIcon glyphName="BUS" />
-                     </graphic></Button>
-                  <Button layoutX="8.0" layoutY="400.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Button" textAlignment="CENTER">
-                     <graphic>
-                        <FontAwesomeIcon />
-                     </graphic></Button>
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="-1.0" layoutY="-4.0" prefHeight="36.0" prefWidth="678.0" style="-fx-background-color: #b0a9a9;">
-               <children>
-                  <Button layoutX="574.0" layoutY="6.0" mnemonicParsing="false" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="6.0">
-                     <graphic>
-                        <FontAwesomeIcon fx:id="close" glyphName="TIMES" />
                      </graphic>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
                   </Button>
-                  <Label layoutX="14.0" layoutY="9.0" prefHeight="20.0" prefWidth="218.0" text="Supervizorska aplikacija E-ticket">
+                  <Button fx:id="transport_lines" layoutX="10.0" layoutY="610.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="185.0" text="Linije" textAlignment="CENTER">
                      <graphic>
                         <FontAwesomeIcon glyphName="BUS" />
                      </graphic>
                      <font>
-                        <Font size="14.0" />
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="-1.0" layoutY="-3.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="1214.0" style="-fx-background-color: #b0a9a9;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button fx:id="close" layoutX="574.0" layoutY="6.0" mnemonicParsing="false" onAction="#close" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="6.0">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="TIMES" />
+                     </graphic>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="14.0" layoutY="9.0" prefHeight="27.0" prefWidth="285.0" text="Supervizorska aplikacija E-ticket">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="BUS" />
+                     </graphic>
+                     <font>
+                        <Font size="18.0" />
                      </font>
                   </Label>
                </children>
