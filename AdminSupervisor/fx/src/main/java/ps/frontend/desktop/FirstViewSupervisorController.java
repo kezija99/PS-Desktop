@@ -100,6 +100,42 @@ public class FirstViewSupervisorController implements Initializable{
     @FXML
     private AnchorPane userForm;
 
+    @FXML
+    private Button nextButton;
+
+    @FXML
+    private AnchorPane transactionPane;
+
+    @FXML
+    private Button previousButton;
+
+    @FXML
+    private TextField transSearchTerminal;
+
+    @FXML
+    private TextField transSearchTime;
+
+    @FXML
+    private TextField transSearchUser;
+
+    @FXML
+    private TableColumn transactionCostColumn;
+
+    @FXML
+    private TableColumn transactionEmailColumn;
+
+    @FXML
+    private Button transactionSearchButton;
+
+    @FXML
+    private TableColumn transactionTerminalidColumn;
+
+    @FXML
+    private TableColumn transactionTimeColumn;
+
+    @FXML
+    private TableView transactionsTable;
+
     public void close() {
         System.exit(0);
     }
@@ -108,6 +144,7 @@ public class FirstViewSupervisorController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         mainForm.setVisible(true);
         usersForm.setVisible(false);
+        transactionPane.setVisible(false);
         nameCollum.setCellValueFactory(new PropertyValueFactory<User, String>("Name"));
         surnameCollum.setCellValueFactory(new PropertyValueFactory<User, String>("Surname"));
         mailCollum.setCellValueFactory(new PropertyValueFactory<User, String>("Email"));
@@ -154,7 +191,15 @@ public class FirstViewSupervisorController implements Initializable{
 
         if (event.getSource() == usersButton) {
             usersForm.setVisible(true);
+            transactionPane.setVisible(false);
             initialPane.setVisible(false);
+        }
+
+        else if(event.getSource() == transactionsButton) {
+            transactionPane.setVisible(true);
+            initialPane.setVisible(false);
+            usersForm.setVisible(false);
+            userForm.setVisible(false);
         }
     }
 
