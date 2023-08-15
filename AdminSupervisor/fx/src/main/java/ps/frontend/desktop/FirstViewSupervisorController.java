@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
@@ -136,6 +137,53 @@ public class FirstViewSupervisorController implements Initializable{
     @FXML
     private TableView transactionsTable;
 
+    @FXML
+    private CheckBox controlerActiveCheckBox;
+
+    @FXML
+    private CheckBox controlerInactiveCheckBox;
+
+    @FXML
+    private TableColumn controlerJMBColumn;
+
+    @FXML
+    private TableColumn controlerNameColumn;
+
+    @FXML
+    private TableColumn controlerPinColumn;
+
+    @FXML
+    private TableColumn controlerStatusColumn;
+
+    @FXML
+    private TableColumn controlerSurnameColumn;
+
+    @FXML
+    private TableView controlerTableView;
+
+    @FXML
+    private Button controlersNextPageButton;
+
+    @FXML
+    private AnchorPane controlersPane;
+
+    @FXML
+    private Button controlersPrevPageButton;
+
+    @FXML
+    private TextField controlerRegistrationJMB;
+
+    @FXML
+    private TextField controlerRegistrationName;
+
+    @FXML
+    private TextField controlerRegistrationPin;
+
+    @FXML
+    private TextField controlerRegistrationSurname;
+
+
+
     public void close() {
         System.exit(0);
     }
@@ -145,6 +193,8 @@ public class FirstViewSupervisorController implements Initializable{
         mainForm.setVisible(true);
         usersForm.setVisible(false);
         transactionPane.setVisible(false);
+        controlersPane.setVisible(false);
+        userForm.setVisible(false);
         nameCollum.setCellValueFactory(new PropertyValueFactory<User, String>("Name"));
         surnameCollum.setCellValueFactory(new PropertyValueFactory<User, String>("Surname"));
         mailCollum.setCellValueFactory(new PropertyValueFactory<User, String>("Email"));
@@ -193,6 +243,7 @@ public class FirstViewSupervisorController implements Initializable{
             usersForm.setVisible(true);
             transactionPane.setVisible(false);
             initialPane.setVisible(false);
+            controlersPane.setVisible(false);
         }
 
         else if(event.getSource() == transactionsButton) {
@@ -200,7 +251,16 @@ public class FirstViewSupervisorController implements Initializable{
             initialPane.setVisible(false);
             usersForm.setVisible(false);
             userForm.setVisible(false);
+            controlersPane.setVisible(false);
         }
+
+        else if(event.getSource() == controllersButton) {
+            controlersPane.setVisible(true);
+            transactionPane.setVisible(false);
+            initialPane.setVisible(false);
+            usersForm.setVisible(false);
+            userForm.setVisible(false);
+        } 
     }
 
 }
