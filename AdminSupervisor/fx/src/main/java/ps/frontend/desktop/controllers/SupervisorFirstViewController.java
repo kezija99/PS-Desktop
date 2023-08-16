@@ -346,7 +346,7 @@ public class SupervisorFirstViewController implements Initializable{
         driverStatusChangeChoiceBox.setItems(FXCollections.observableArrayList("Aktivan", "Neaktivan"));
 
         nameCollum.setCellValueFactory(new PropertyValueFactory<User, String>("Name"));
-        surnameCollum.setCellValueFactory(new PropertyValueFactory<User, String>("Surname"));
+        surnameCollum.setCellValueFactory(new PropertyValueFactory<User, String>("LastName"));
         mailCollum.setCellValueFactory(new PropertyValueFactory<User, String>("Email"));
         creditCollum.setCellValueFactory(new PropertyValueFactory<User, String>("Credit"));
         this.usersTable.getItems().setAll(this.getAllUsers());
