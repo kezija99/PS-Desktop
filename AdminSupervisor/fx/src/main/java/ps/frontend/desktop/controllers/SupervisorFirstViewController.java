@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
@@ -268,6 +269,12 @@ public class SupervisorFirstViewController implements Initializable{
     private TableColumn requestsTicketRequestsTicketType;
 
     @FXML
+    private TableColumn requestsTicketRequestsUserName;
+
+    @FXML
+    private TableColumn requestsTicketRequestsUserSurname;
+
+    @FXML
     private TableColumn requestsTicketRequestsUserID;
 
     @FXML
@@ -289,6 +296,12 @@ public class SupervisorFirstViewController implements Initializable{
     private Button requestsTicketResponseSearchButton;
 
     @FXML
+    private TableColumn requestsTicketResponseUserName;
+
+    @FXML
+    private TableColumn requestsTicketResponseUserSurname;
+
+    @FXML
     private TextField requestsTicketResponseSupervisorID;
 
     @FXML
@@ -301,16 +314,31 @@ public class SupervisorFirstViewController implements Initializable{
     private TableColumn requestsTicketResponseTicketType;
 
     @FXML
-    private Label requestsTicketResponseTicketTypeLabel;
+    private Label requestsTicketProcessingTicketTypeLabel;
 
     @FXML
     private TableColumn requestsTicketResponseUserID;
 
     @FXML
-    private Label requestsTicketResponseUserIDLabel;
+    private AnchorPane requestsTicketProcessingPane;
 
     @FXML
-    private AnchorPane terminalPane;
+    private Label requestsTicketProcessingUserIDLabel;
+
+    @FXML
+    private Label requestsTicketProcessingUserJMBLabel;
+
+    @FXML
+    private Label requestsTicketProcessingUserNameLabel;
+
+    @FXML
+    private Label requestsTicketProcessingUserSurnameLabel;
+
+    @FXML
+    private Hyperlink requestsTicketProcessingDocumentsHyperlink;
+
+    @FXML
+    private ImageView requestsTicketProcessingUserPictureBox;
 
     @FXML
     private Button terminalRequestSendButton;
@@ -341,7 +369,7 @@ public class SupervisorFirstViewController implements Initializable{
         driverStatusPane.setVisible(false);
         requestsPane.setVisible(false);
         requestsTicketResponsePane.setVisible(false);
-        terminalPane.setVisible(false);
+        requestsTicketProcessingPane.setVisible(false);
 
         driverStatusChangeChoiceBox.setItems(FXCollections.observableArrayList("Aktivan", "Neaktivan"));
 
@@ -434,7 +462,7 @@ public class SupervisorFirstViewController implements Initializable{
             driverStatusPane.setVisible(false);
             requestsPane.setVisible(false);
             requestsTicketResponsePane.setVisible(false);
-            terminalPane.setVisible(false);
+            requestsTicketProcessingPane.setVisible(false);
         }
 
         else if(event.getSource() == transactionsButton) {
@@ -447,7 +475,7 @@ public class SupervisorFirstViewController implements Initializable{
             driverStatusPane.setVisible(false);
             requestsPane.setVisible(false);
             requestsTicketResponsePane.setVisible(false);
-            terminalPane.setVisible(false);
+            requestsTicketProcessingPane.setVisible(false);
         }
 
         else if(event.getSource() == driversButton) {
@@ -460,26 +488,15 @@ public class SupervisorFirstViewController implements Initializable{
             driverStatusPane.setVisible(false);
             requestsPane.setVisible(false);
             requestsTicketResponsePane.setVisible(false);
-            terminalPane.setVisible(false);
+            requestsTicketProcessingPane.setVisible(false);
         }
 
         else if(event.getSource() == requestsButton) {
             requestsPane.setVisible(true);
-            requestsTicketResponsePane.setVisible(false);
-            driversPane.setVisible(false);
-            transactionPane.setVisible(false);
-            initialPane.setVisible(false);
-            usersForm.setVisible(false);
-            userForm.setVisible(false);
-            driverRegistrationPane.setVisible(false);
-            driverStatusPane.setVisible(false);
-            terminalPane.setVisible(false);
-        }
+            requestsTicketResponsePane.setVisible(true);
+            requestsTicketProcessingPane.setVisible(false); //za requestsTicketRequestTableView (event.getClickCount() == 2)    ==> ovo je true
 
-        else if(event.getSource() == terminalRequestButton) {
-            terminalPane.setVisible(true);
-            requestsPane.setVisible(false);
-            requestsTicketResponsePane.setVisible(false);
+
             driversPane.setVisible(false);
             transactionPane.setVisible(false);
             initialPane.setVisible(false);
