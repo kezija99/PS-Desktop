@@ -18,7 +18,8 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        Parent root = FXMLLoader.load(getClass().getResource("AdminFirstView.fxml"));
+        System.setProperty("file.encoding", "UTF-8");
+        Parent root = FXMLLoader.load(getClass().getResource("/ps/frontend/desktop/LoginView.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

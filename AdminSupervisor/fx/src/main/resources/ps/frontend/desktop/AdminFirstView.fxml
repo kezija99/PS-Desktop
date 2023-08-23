@@ -9,6 +9,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,7 +18,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="815.0" prefWidth="1412.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ps.frontend.desktop.controllers.FirstViewController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="815.0" prefWidth="1412.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ps.frontend.desktop.controllers.AdminFirstViewController">
    <children>
       <AnchorPane fx:id="mainForm" prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -25,17 +26,12 @@
                <top>
                   <AnchorPane prefHeight="41.0" prefWidth="1100.0" style="-fx-background-color: #b0a9a9;" BorderPane.alignment="CENTER">
                      <children>
-                        <FontAwesomeIcon glyphName="BUS" layoutX="14.0" layoutY="26.0" size="1.5em" />
-                        <Label layoutX="38.0" layoutY="10.0" text="Administratorska aplikacija E-ticket">
+                        <FontAwesomeIcon glyphName="BUS" layoutX="14.0" layoutY="33.0" size="1.5em" />
+                        <Label layoutX="38.0" layoutY="17.0" text="Administratorska aplikacija E-ticket">
                            <font>
                               <Font name="Tahoma" size="15.0" />
                            </font>
                         </Label>
-                        <Button layoutX="1347.0" layoutY="7.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" style="-fx-background-color: #dbd9d9;">
-                           <graphic>
-                              <FontAwesomeIcon glyphName="CLOSE" size="1.2em" />
-                           </graphic>
-                        </Button>
                      </children>
                   </AnchorPane>
                </top>
@@ -59,44 +55,54 @@
                               <FontAwesomeIcon glyphName="USERS" size="1.5em" />
                            </graphic>
                         </Button>
-                        <Button fx:id="supervisorsButton" layoutX="26.0" layoutY="249.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Supervizori">
+                        <Button fx:id="supervisorsButton" layoutX="26.0" layoutY="236.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Supervizori">
                            <graphic>
                               <FontAwesomeIcon glyphName="USERS" size="1.5em" />
                            </graphic>
                         </Button>
-                        <Button fx:id="transactionsButton" layoutX="26.0" layoutY="325.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Transakcije">
+                        <Button fx:id="transactionsButton" layoutX="26.0" layoutY="299.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Transakcije">
                            <graphic>
                               <FontAwesomeIcon glyphName="MONEY" size="1.5em" />
                            </graphic>
                         </Button>
-                        <Button layoutX="19.0" layoutY="728.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="40.0" style="-fx-background-color: #dbd9d9;">
+                        <Button layoutX="19.0" layoutY="750.0" mnemonicParsing="false" onAction="#logout" prefHeight="27.0" prefWidth="40.0" style="-fx-background-color: #dbd9d9;">
                            <graphic>
                               <FontAwesomeIcon glyphName="SIGN_OUT" size="2em" wrappingWidth="22.285715103149414" />
                            </graphic>
                         </Button>
-                        <Label layoutX="65.0" layoutY="734.0" text="Odjava" textFill="WHITE">
+                        <Label layoutX="65.0" layoutY="756.0" text="Odjava" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Button fx:id="controllersButton" layoutX="26.0" layoutY="401.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Kontroleri">
+                        <Button fx:id="controllersButton" layoutX="26.0" layoutY="362.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Kontroleri">
                            <graphic>
                               <FontAwesomeIcon glyphName="USERS" size="1.5em" />
                            </graphic>
                         </Button>
-                        <Button fx:id="terminalsButton" layoutX="26.0" layoutY="477.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Terminali">
+                        <Button fx:id="terminalsButton" layoutX="26.0" layoutY="425.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Terminali">
                            <graphic>
                               <FontAwesomeIcon glyphName="TABLET" size="1.5em" />
                            </graphic>
                         </Button>
-                        <Button fx:id="requestsButton" layoutX="26.0" layoutY="553.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Zahtjevi">
+                        <Button fx:id="requestsButton" layoutX="26.0" layoutY="488.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Zahtjevi">
                            <graphic>
                               <FontAwesomeIcon glyphName="QUESTION" size="1.5em" />
                            </graphic>
                         </Button>
-                        <Button fx:id="transportersButton" layoutX="26.0" layoutY="629.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Prevoznici">
+                        <Button fx:id="transportersButton" layoutX="26.0" layoutY="551.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Prevoznici">
                            <graphic>
                               <FontAwesomeIcon glyphName="BUS" size="1.5em" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="ticketsButton" layoutX="26.0" layoutY="614.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Karte">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="TICKET" size="1.5em" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="routesButton" layoutX="26.0" layoutY="677.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Linije">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="ROAD" size="1.5em" />
                            </graphic>
                         </Button>
                      </children>
@@ -107,7 +113,7 @@
                      <children>
                         <AnchorPane fx:id="usersForm" prefHeight="776.0" prefWidth="1213.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <TableView fx:id="usersTable" layoutX="-1.0" layoutY="60.0" prefHeight="690.0" prefWidth="609.0" style="-fx-background-color: #dbd9d9;">
+                              <TableView fx:id="usersTable" layoutY="96.0" prefHeight="662.0" prefWidth="609.0" style="-fx-background-color: #dbd9d9;">
                                 <columns>
                                   <TableColumn fx:id="nameColumn" prefWidth="115.0" style="-fx-background-color: #dbd9d9;" text="Ime" />
                                   <TableColumn fx:id="lastNameColumn" prefWidth="132.0" style="-fx-background-color: #dbd9d9;" text="Prezime" />
@@ -117,11 +123,7 @@
                               </TableView>
                               <AnchorPane fx:id="userForm" layoutX="607.0" layoutY="-3.0" prefHeight="779.0" prefWidth="605.0">
                                  <children>
-                                    <ImageView fitHeight="272.0" fitWidth="276.0" layoutX="160.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../../../../../../../../11156_17-Pavle_Koljancic-eTicket/11156_17-Pavle_Koljancic-eTicket/demo/src/main/resources/com/example/userDefault.png" />
-                                       </image>
-                                    </ImageView>
+                                    <ImageView fx:id="userImage" fitHeight="272.0" fitWidth="276.0" layoutX="160.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
                                     <Label layoutX="96.0" layoutY="310.0" text="Ime:">
                                        <font>
                                           <Font size="14.0" />
@@ -148,34 +150,37 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TableView fx:id="userTicketsTable" layoutX="-2.0" layoutY="380.0" prefHeight="398.0" prefWidth="608.0">
+                                    <TableView fx:id="userTicketsTable" layoutX="-2.0" layoutY="380.0" prefHeight="398.0" prefWidth="607.0">
                                       <columns>
-                                        <TableColumn fx:id="ticketNameColumn" prefWidth="304.0" text="Naziv" />
-                                        <TableColumn fx:id="transporterColumn" prefWidth="303.0" text="Prevoznik" />
+                                        <TableColumn fx:id="ticketNameColumn" prefWidth="312.0" text="Naziv" />
+                                        <TableColumn fx:id="usageColumn" prefWidth="118.0" text="Kolicina" />
+                                          <TableColumn fx:id="validUntilColumn" minWidth="0.0" prefWidth="252.0" text="Validna do" />
                                       </columns>
                                     </TableView>
                                  </children>
                               </AnchorPane>
-                              <TextField layoutX="14.0" layoutY="21.0" prefHeight="25.0" prefWidth="99.0" promptText="Ime" />
-                              <TextField layoutX="128.0" layoutY="21.0" prefHeight="25.0" prefWidth="176.0" promptText="Prezime" />
-                              <TextField layoutX="321.0" layoutY="21.0" prefHeight="25.0" prefWidth="187.0" promptText="E-mail" />
-                              <Button layoutX="518.0" layoutY="12.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="89.0">
+                              <TextField fx:id="userFirstNameField" layoutX="14.0" layoutY="21.0" prefHeight="25.0" prefWidth="99.0" promptText="Ime" />
+                              <TextField fx:id="userLastNameField" layoutX="128.0" layoutY="21.0" prefHeight="25.0" prefWidth="176.0" promptText="Prezime" />
+                              <TextField fx:id="userEmailField" layoutX="321.0" layoutY="21.0" prefHeight="25.0" prefWidth="187.0" promptText="E-mail" />
+                              <Button layoutX="518.0" layoutY="12.0" mnemonicParsing="false" onAction="#showFiltered" prefHeight="43.0" prefWidth="89.0">
                                  <graphic>
                                     <FontAwesomeIcon glyphName="SEARCH" size="2em" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="-2.0" layoutY="750.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="307.0" text="Prethodna stranica" />
-                              <Button layoutX="305.0" layoutY="750.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="301.0" text="Sljedeca stranica" />
+                              <Button layoutX="1.0" layoutY="758.0" mnemonicParsing="false" onAction="#previousUsersPage" prefHeight="25.0" prefWidth="307.0" text="Prethodna stranica" />
+                              <Button layoutX="308.0" layoutY="758.0" mnemonicParsing="false" onAction="#nextUsersPage" prefHeight="25.0" prefWidth="301.0" text="Sljedeca stranica" />
+                              <Label layoutX="171.0" layoutY="4.0" text="Pretraga se vrsi po imenu i prezimenu ili po e-mejl adresi" />
+                              <Label fx:id="usersInfoLabel" alignment="CENTER" layoutX="14.0" layoutY="70.0" prefHeight="17.0" prefWidth="589.0" />
                            </children></AnchorPane>
                         <AnchorPane fx:id="supervisorsForm" layoutX="239.0" layoutY="130.0" prefHeight="561.0" prefWidth="901.0" visible="false" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <TableView layoutX="623.0" layoutY="-2.0" prefHeight="577.0" prefWidth="590.0">
+                              <TableView fx:id="supervisorsTable" layoutX="623.0" layoutY="-2.0" prefHeight="577.0" prefWidth="590.0">
                                 <columns>
-                                  <TableColumn prefWidth="75.0" text="Ime" />
-                                  <TableColumn prefWidth="147.0" text="Prezime" />
-                                    <TableColumn prefWidth="159.0" text="E-mail" />
-                                    <TableColumn prefWidth="128.0" text="Prevoznik" />
-                                    <TableColumn prefWidth="81.0" text="Status" />
+                                  <TableColumn fx:id="supervisorNameColumn" prefWidth="75.0" text="Ime" />
+                                  <TableColumn fx:id="supervisorLastNameColumn" prefWidth="147.0" text="Prezime" />
+                                    <TableColumn fx:id="supervisorEmailColumn" prefWidth="159.0" text="E-mail" />
+                                    <TableColumn fx:id="supervisorTransporterColumn" prefWidth="128.0" text="Prevoznik" />
+                                    <TableColumn fx:id="supervisorStatusColumn" prefWidth="81.0" text="Status" />
                                 </columns>
                               </TableView>
                               <AnchorPane fx:id="userForm1" prefHeight="779.0" prefWidth="625.0">
@@ -210,11 +215,11 @@
                                           <Font size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="238.0" layoutY="92.0" />
-                                    <TextField layoutX="238.0" layoutY="142.0" />
-                                    <TextField layoutX="238.0" layoutY="194.0" />
-                                    <PasswordField layoutX="238.0" layoutY="242.0" />
-                                    <PasswordField layoutX="238.0" layoutY="291.0" />
+                                    <TextField fx:id="supervisorNameField" layoutX="238.0" layoutY="92.0" />
+                                    <TextField fx:id="supervisorLastNameField" layoutX="238.0" layoutY="142.0" />
+                                    <TextField fx:id="supervisorEmailField" layoutX="238.0" layoutY="194.0" />
+                                    <PasswordField fx:id="supervisorPasswordFirst" layoutX="238.0" layoutY="242.0" />
+                                    <PasswordField fx:id="supervisorPasswordSecond" layoutX="238.0" layoutY="291.0" />
                                     <Line endX="265.0" endY="0.5" layoutX="308.0" layoutY="80.0" startX="-256.0" startY="0.5" />
                                     <Line endX="-46.0" endY="136.0" layoutX="97.0" layoutY="188.0" startX="-46.0" startY="-83.0" />
                                     <Line endX="-46.0" endY="137.0" layoutX="619.0" layoutY="188.0" startX="-46.0" startY="-83.0" />
@@ -224,23 +229,27 @@
                                           <Font name="System Italic" size="16.0" />
                                        </font>
                                     </Label>
-                                    <ChoiceBox layoutX="275.0" layoutY="373.0" prefHeight="25.0" prefWidth="189.0" />
-                                    <Button layoutX="241.0" layoutY="427.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="144.0" text="Registruj" />
+                                    <ChoiceBox fx:id="pickTransporterChoiceBox" layoutX="275.0" layoutY="373.0" prefHeight="25.0" prefWidth="189.0" />
+                                    <Button layoutX="241.0" layoutY="427.0" mnemonicParsing="false" onAction="#registerSupervisor" prefHeight="60.0" prefWidth="144.0" text="Registruj" />
+                                    <Label fx:id="supervisorInfoLabel" alignment="CENTER" layoutX="42.0" layoutY="512.0" prefHeight="17.0" prefWidth="535.0" />
                                  </children>
                               </AnchorPane>
-                              <Button layoutX="624.0" layoutY="575.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="293.0" text="Prethodna stranica" />
-                              <Button layoutX="917.0" layoutY="575.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="296.0" text="Sljedeca stranica" />
-                              <RadioButton layoutX="742.0" layoutY="619.0" mnemonicParsing="false" text="Aktivni" />
-                              <RadioButton layoutX="1030.0" layoutY="619.0" mnemonicParsing="false" text="Neaktivni" />
-                              <Button layoutX="875.0" layoutY="706.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="89.0">
+                              <Button layoutX="624.0" layoutY="575.0" mnemonicParsing="false" onAction="#previousSupervisorsPage" prefHeight="25.0" prefWidth="293.0" text="Prethodna stranica" />
+                              <Button layoutX="917.0" layoutY="575.0" mnemonicParsing="false" onAction="#nextSupervisorsPage" prefHeight="25.0" prefWidth="296.0" text="Sljedeca stranica" />
+                              <RadioButton fx:id="activeSupervisors" layoutX="742.0" layoutY="619.0" mnemonicParsing="false" text="Aktivni">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="supervisorStatus" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton fx:id="inactiveSupervisors" layoutX="1030.0" layoutY="619.0" mnemonicParsing="false" text="Neaktivni" toggleGroup="$supervisorStatus" />
+                              <Button layoutX="875.0" layoutY="706.0" mnemonicParsing="false" onAction="#showFilteredSupervisors" prefHeight="43.0" prefWidth="89.0">
                                  <graphic>
                                     <FontAwesomeIcon glyphName="SEARCH" size="2em" />
                                  </graphic>
                               </Button>
                               <Label layoutX="779.0" layoutY="658.0" text="Pretrazi po prevozniku" />
-                              <ChoiceBox layoutX="911.0" layoutY="654.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="searchByTransporterChoiceBox" layoutX="911.0" layoutY="654.0" prefWidth="150.0" />
                            </children></AnchorPane>
-                        <AnchorPane fx:id="mainForm" prefHeight="774.0" prefWidth="1212.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="mainForm" prefHeight="774.0" prefWidth="1212.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <ImageView fitHeight="556.0" fitWidth="1091.0" layoutX="77.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -256,13 +265,13 @@
                         </AnchorPane>
                         <AnchorPane fx:id="transactionsForm" prefHeight="777.0" prefWidth="1213.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <TableView prefHeight="753.0" prefWidth="698.0">
+                              <TableView fx:id="transactionsTable" prefHeight="753.0" prefWidth="698.0">
                                 <columns>
-                                  <TableColumn prefWidth="216.0" text="E-mail" />
-                                  <TableColumn prefWidth="123.0" text="Vrijednost" />
-                                    <TableColumn prefWidth="111.0" text="Vrijeme" />
-                                    <TableColumn prefWidth="94.0" text="Terminal id" />
-                                    <TableColumn prefWidth="153.0" text="Supervizor" />
+                                  <TableColumn fx:id="transactionsEmailColumn" prefWidth="216.0" text="E-mail" />
+                                  <TableColumn fx:id="transactionsValueColumn" prefWidth="79.0" text="Vrijednost" />
+                                    <TableColumn fx:id="transactionsTimestampColumn" prefWidth="165.0" text="Vrijeme" />
+                                    <TableColumn fx:id="transactionsTerminalColumn" prefWidth="73.0" text="Terminal id" />
+                                    <TableColumn fx:id="transactionsSupervisorColumn" prefWidth="164.0" text="Supervizor" />
                                 </columns>
                               </TableView>
                               <Label layoutX="736.0" layoutY="27.0" text="Prikazi transakcije nakon unesenog vremena:">
@@ -270,46 +279,46 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField alignment="CENTER" layoutX="1033.0" layoutY="25.0" promptText="format vremena" />
-                              <Button layoutY="751.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="350.0" text="Prethodna stranica" />
-                              <Button layoutX="350.0" layoutY="751.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="348.0" text="Sljedeca stranica" />
+                              <TextField fx:id="timeAfterField" alignment="CENTER" layoutX="1033.0" layoutY="25.0" promptText="yyyy-MM-dd HH:mm:ss" />
+                              <Button layoutY="751.0" mnemonicParsing="false" onAction="#getPreviousTransactionsPage" prefHeight="25.0" prefWidth="350.0" text="Prethodna stranica" />
+                              <Button layoutX="350.0" layoutY="751.0" mnemonicParsing="false" onAction="#getNextTransactionsPage" prefHeight="25.0" prefWidth="348.0" text="Sljedeca stranica" />
                               <Label layoutX="734.0" layoutY="141.0" text="Prikazi transakcije izmedju unesenih vremena:">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
                               <Line endX="236.0" layoutX="962.0" layoutY="93.0" startX="-253.0" />
-                              <TextField alignment="CENTER" layoutX="1037.0" layoutY="139.0" promptText="vrijeme od" />
-                              <TextField alignment="CENTER" layoutX="1037.0" layoutY="177.0" promptText="vrijeme do" />
+                              <TextField fx:id="timeFromField" alignment="CENTER" layoutX="1037.0" layoutY="139.0" promptText="vrijeme od" />
+                              <TextField fx:id="timeUntilField" alignment="CENTER" layoutX="1037.0" layoutY="177.0" promptText="vrijeme do" />
                               <Line endX="236.0" layoutX="962.0" layoutY="207.0" startX="-253.0" />
                               <Label layoutX="733.0" layoutY="256.0" text="Prikazi transakcije za korisnika:">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField alignment="CENTER" layoutX="938.0" layoutY="254.0" promptText="id korisnika" />
+                              <TextField fx:id="userIdField" alignment="CENTER" layoutX="938.0" layoutY="254.0" promptText="id korisnika" />
                               <Line endX="236.0" layoutX="962.0" layoutY="300.0" startX="-253.0" />
                               <Label layoutX="733.0" layoutY="348.0" text="Prikazi kredit transakcije za supervizora:">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField alignment="CENTER" layoutX="997.0" layoutY="346.0" promptText="id supervizora" />
+                              <TextField fx:id="supervisorIdField" alignment="CENTER" layoutX="997.0" layoutY="346.0" promptText="id supervizora" />
                               <Line endX="236.0" layoutX="962.0" layoutY="413.0" startX="-253.0" />
                               <Label layoutX="733.0" layoutY="461.0" text="Prikazi sken transakcije za terminal:">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField alignment="CENTER" layoutX="967.0" layoutY="459.0" promptText="id terminala" />
+                              <TextField fx:id="terminalIdField" alignment="CENTER" layoutX="967.0" layoutY="459.0" promptText="id terminala" />
                               <Line endX="236.0" layoutX="962.0" layoutY="528.0" startX="-253.0" />
                               <Label layoutX="733.0" layoutY="560.0" text="Prikazi transakcije za transportera:">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <ChoiceBox layoutX="961.0" layoutY="558.0" prefWidth="150.0" />
-                              <Button layoutX="836.0" layoutY="648.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="251.0" text="Prikazi">
+                              <ChoiceBox fx:id="transactionsTransporterChoiceBox" layoutX="961.0" layoutY="558.0" prefWidth="150.0" />
+                              <Button layoutX="836.0" layoutY="648.0" mnemonicParsing="false" onAction="#showTransactions" prefHeight="62.0" prefWidth="251.0" text="Prikazi">
                                  <graphic>
                                     <FontAwesomeIcon glyphName="SEARCH" size="2em" />
                                  </graphic>
@@ -317,17 +326,18 @@
                                     <Font size="18.0" />
                                  </font>
                               </Button>
+                              <Label fx:id="transactionsInfoLabel" alignment="CENTER" layoutX="737.0" layoutY="743.0" prefHeight="17.0" prefWidth="430.0" />
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="controllersForm" layoutX="10.0" layoutY="10.0" prefHeight="561.0" prefWidth="901.0" visible="false">
                            <children>
-                              <TableView layoutX="623.0" layoutY="-2.0" prefHeight="577.0" prefWidth="590.0">
+                              <TableView fx:id="controllersTable" layoutX="623.0" layoutY="-2.0" prefHeight="577.0" prefWidth="590.0">
                                  <columns>
-                                    <TableColumn prefWidth="75.0" text="Ime" />
-                                    <TableColumn prefWidth="147.0" text="Prezime" />
-                                    <TableColumn prefWidth="159.0" text="JMB" />
-                                    <TableColumn prefWidth="128.0" text="Pin" />
-                                    <TableColumn prefWidth="81.0" text="Status" />
+                                    <TableColumn fx:id="controllersNameColumn" prefWidth="108.0" text="Ime" />
+                                    <TableColumn fx:id="controllersLastNameColumn" prefWidth="150.0" text="Prezime" />
+                                    <TableColumn fx:id="controllersJMBColumn" prefWidth="165.0" text="JMB" />
+                                    <TableColumn fx:id="controllersPinColumn" prefWidth="86.0" text="Pin" />
+                                    <TableColumn fx:id="controllersStatusColumn" prefWidth="81.0" text="Status" />
                                  </columns>
                               </TableView>
                               <AnchorPane fx:id="userForm11" prefHeight="779.0" prefWidth="625.0">
@@ -352,27 +362,31 @@
                                           <Font size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="238.0" layoutY="296.0" />
-                                    <TextField layoutX="238.0" layoutY="346.0" />
+                                    <TextField fx:id="controllersNameField" layoutX="238.0" layoutY="296.0" />
+                                    <TextField fx:id="controllersLastNameField" layoutX="238.0" layoutY="346.0" />
                                     <Line endX="265.0" endY="0.5" layoutX="308.0" layoutY="284.0" startX="-256.0" startY="0.5" />
                                     <Line endX="-46.0" endY="85.0" layoutX="97.0" layoutY="392.0" startX="-46.0" startY="-83.0" />
                                     <Line endX="-46.0" endY="85.0" layoutX="619.0" layoutY="392.0" startX="-46.0" startY="-83.0" />
                                     <Line endX="265.0" endY="0.5" layoutX="309.0" layoutY="504.0" startX="-256.0" startY="0.5" />
-                                    <Button layoutX="241.0" layoutY="540.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="144.0" text="Registruj" />
-                                    <TextField layoutX="239.0" layoutY="390.0" />
-                                    <TextField layoutX="239.0" layoutY="432.0" />
+                                    <Button layoutX="241.0" layoutY="540.0" mnemonicParsing="false" onAction="#registerController" prefHeight="60.0" prefWidth="144.0" text="Registruj" />
+                                    <TextField fx:id="controllersPinField" layoutX="239.0" layoutY="390.0" />
+                                    <TextField fx:id="controllersJMBField" layoutX="239.0" layoutY="432.0" />
                                     <Label layoutX="207.0" layoutY="432.0" text="JMB:">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
                                     </Label>
+                                    <Label fx:id="controllersInfoLabel" alignment="CENTER" layoutX="62.0" layoutY="664.0" prefHeight="17.0" prefWidth="506.0" />
                                  </children>
                               </AnchorPane>
-                              <Button layoutX="624.0" layoutY="575.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="293.0" text="Prethodna stranica" />
-                              <Button layoutX="917.0" layoutY="575.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="296.0" text="Sljedeca stranica" />
-                              <RadioButton layoutX="742.0" layoutY="619.0" mnemonicParsing="false" text="Aktivni" />
-                              <RadioButton layoutX="1030.0" layoutY="619.0" mnemonicParsing="false" text="Neaktivni" />
-                              <Button layoutX="874.0" layoutY="673.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="89.0">
+                              <Button layoutX="624.0" layoutY="575.0" mnemonicParsing="false" onAction="#previousControllersPage" prefHeight="25.0" prefWidth="293.0" text="Prethodna stranica" />
+                              <Button layoutX="917.0" layoutY="575.0" mnemonicParsing="false" onAction="#nextControllersPage" prefHeight="25.0" prefWidth="296.0" text="Sljedeca stranica" />
+                              <RadioButton fx:id="activeControllers" layoutX="742.0" layoutY="619.0" mnemonicParsing="false" text="Aktivni">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="controllerStatus" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton fx:id="inactiveControllers" layoutX="1030.0" layoutY="619.0" mnemonicParsing="false" text="Neaktivni" toggleGroup="$controllerStatus" />
+                              <Button layoutX="874.0" layoutY="673.0" mnemonicParsing="false" onAction="#showFilteredControllers" prefHeight="43.0" prefWidth="89.0">
                                  <graphic>
                                     <FontAwesomeIcon glyphName="SEARCH" size="2em" />
                                  </graphic>
@@ -381,10 +395,10 @@
                         </AnchorPane>
                         <AnchorPane fx:id="transportersForm" prefHeight="789.0" prefWidth="1223.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <TableView layoutX="201.0" layoutY="83.0" prefHeight="598.0" prefWidth="239.0">
+                              <TableView fx:id="transportersTable" layoutX="201.0" layoutY="83.0" prefHeight="598.0" prefWidth="239.0">
                                 <columns>
-                                  <TableColumn prefWidth="49.0" text="Id" />
-                                  <TableColumn prefWidth="193.0" text="Ime prevoznika" />
+                                  <TableColumn fx:id="transporterIdColumn" prefWidth="49.0" text="Id" />
+                                  <TableColumn fx:id="transporterNameColumn" prefWidth="193.0" text="Ime prevoznika" />
                                 </columns>
                               </TableView>
                               <Label layoutX="682.0" layoutY="221.0" text="Registracija prevoznika">
@@ -397,22 +411,26 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="765.0" layoutY="309.0" prefHeight="25.0" prefWidth="207.0" />
-                              <Button layoutX="705.0" layoutY="385.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="173.0" text="Registruj" />
+                              <TextField fx:id="newTransporterField" layoutX="765.0" layoutY="309.0" prefHeight="25.0" prefWidth="207.0" />
+                              <Button layoutX="705.0" layoutY="385.0" mnemonicParsing="false" onAction="#registerTransporter" prefHeight="39.0" prefWidth="173.0" text="Registruj" />
+                              <Label fx:id="transporterInfoLabel" alignment="CENTER" layoutX="611.0" layoutY="474.0" prefHeight="17.0" prefWidth="416.0" />
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="requestsForm" prefHeight="789.0" prefWidth="1223.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <TableView prefHeight="617.0" prefWidth="378.0">
+                              <TableView fx:id="terminalRequestTable" prefHeight="617.0" prefWidth="378.0">
                                 <columns>
-                                  <TableColumn prefWidth="95.0" text="Serijski broj" />
-                                  <TableColumn prefWidth="183.0" text="Prevoznik" />
-                                    <TableColumn prefWidth="99.0" text="Status" />
+                                  <TableColumn fx:id="requestSerialColumn" prefWidth="95.0" text="Serijski broj" />
+                                  <TableColumn fx:id="requestTransporterColumn" prefWidth="183.0" text="Prevoznik" />
+                                    <TableColumn fx:id="requestStatusColumn" prefWidth="99.0" text="Status" />
                                 </columns>
                               </TableView>
-                              <RadioButton layoutX="63.0" layoutY="645.0" mnemonicParsing="false" text="Obradjeni" />
-                              <RadioButton layoutX="214.0" layoutY="645.0" mnemonicParsing="false" text="Neobradjeni" />
-                              <Button layoutX="96.0" layoutY="726.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="179.0" text="Prikazi">
+                              <RadioButton fx:id="allRequests" layoutX="63.0" layoutY="645.0" mnemonicParsing="false" text="Svi zahtjevi">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="requestsStatus" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton fx:id="unprocessedRequests" layoutX="214.0" layoutY="645.0" mnemonicParsing="false" text="Neobradjeni" toggleGroup="$requestsStatus" />
+                              <Button layoutX="96.0" layoutY="726.0" mnemonicParsing="false" onAction="#showRequests" prefHeight="35.0" prefWidth="179.0" text="Prikazi">
                                  <graphic>
                                     <FontAwesomeIcon glyphName="SEARCH" size="1.5em" />
                                  </graphic>
@@ -420,7 +438,7 @@
                                     <Font size="16.0" />
                                  </font>
                               </Button>
-                              <ChoiceBox layoutX="226.0" layoutY="682.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="requestsTransportersChoiceBox" layoutX="226.0" layoutY="682.0" prefWidth="150.0" />
                               <Label layoutX="14.0" layoutY="684.0" text="Prikazi po odabranom prevozniku:">
                                  <font>
                                     <Font size="14.0" />
@@ -431,7 +449,7 @@
                                     <Font name="System Bold Italic" size="20.0" />
                                  </font>
                               </Label>
-                              <Button layoutX="550.0" layoutY="372.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="137.0" text="Odobri">
+                              <Button layoutX="550.0" layoutY="372.0" mnemonicParsing="false" onAction="#approveRequest" prefHeight="45.0" prefWidth="137.0" text="Odobri">
                                  <graphic>
                                     <FontAwesomeIcon glyphName="CHECK" size="2em" />
                                  </graphic>
@@ -439,7 +457,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <Button layoutX="842.0" layoutY="372.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="136.0" text="Odbij">
+                              <Button layoutX="842.0" layoutY="372.0" mnemonicParsing="false" onAction="#denyRequest" prefHeight="46.0" prefWidth="136.0" text="Odbij">
                                  <graphic>
                                     <FontAwesomeIcon glyphName="CLOSE" size="2em" />
                                  </graphic>
@@ -450,20 +468,21 @@
                               <Label layoutX="713.0" layoutY="226.0" text="Odabrani zahtjev" />
                               <Line endX="193.0" layoutX="758.0" layoutY="264.0" startX="-195.0" />
                               <Line endX="193.0" layoutX="759.0" layoutY="352.0" startX="-195.0" />
-                              <Label alignment="CENTER" layoutX="571.0" layoutY="300.0" prefHeight="20.0" prefWidth="378.0">
+                              <Label fx:id="pickedRequestLabel" alignment="CENTER" layoutX="571.0" layoutY="300.0" prefHeight="20.0" prefWidth="378.0">
                                  <font>
                                     <Font name="System Bold Italic" size="14.0" />
                                  </font>
                               </Label>
+                              <Label fx:id="requestsInfoLabel" alignment="CENTER" layoutX="569.0" layoutY="495.0" prefHeight="17.0" prefWidth="380.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="terminalsForm" layoutX="10.0" layoutY="10.0" prefHeight="789.0" prefWidth="1223.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="terminalsForm" layoutX="10.0" layoutY="10.0" prefHeight="789.0" prefWidth="1223.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <TableView fx:id="usersTable1" prefHeight="598.0" prefWidth="319.0">
+                              <TableView fx:id="terminalsTable" prefHeight="598.0" prefWidth="319.0">
                                  <columns>
-                                    <TableColumn fx:id="nameColumn1" prefWidth="39.0" text="Id" />
-                                    <TableColumn fx:id="lastNameColumn1" prefWidth="159.0" text="Prevoznik" />
-                                    <TableColumn fx:id="emailColumn1" prefWidth="120.0" text="Status" />
+                                    <TableColumn fx:id="terminalIdColumn" prefWidth="39.0" text="Id" />
+                                    <TableColumn fx:id="terminalTransporterColumn" prefWidth="159.0" text="Prevoznik" />
+                                    <TableColumn fx:id="terminalStatusColumn" prefWidth="120.0" text="Status" />
                                  </columns>
                               </TableView>
                               <AnchorPane fx:id="terminalForm" layoutX="319.0" layoutY="-3.0" prefHeight="779.0" prefWidth="893.0">
@@ -473,15 +492,15 @@
                                           <Font name="System Bold Italic" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TableView layoutX="52.0" layoutY="49.0" prefHeight="588.0" prefWidth="374.0">
+                                    <TableView fx:id="scanInterractionsTable" layoutX="52.0" layoutY="49.0" prefHeight="588.0" prefWidth="374.0">
                                       <columns>
-                                        <TableColumn prefWidth="60.0" text="Terminal" />
-                                        <TableColumn prefWidth="122.0" text="Korisnik" />
-                                          <TableColumn prefWidth="48.0" text="Linija" />
-                                          <TableColumn prefWidth="143.0" text="Vrijeme" />
+                                        <TableColumn fx:id="scanTerminalColumn" prefWidth="60.0" text="Terminal" />
+                                        <TableColumn fx:id="scanUserColumn" prefWidth="122.0" text="Korisnik" />
+                                          <TableColumn fx:id="scanRouteColumn" prefWidth="48.0" text="Linija" />
+                                          <TableColumn fx:id="scanTimeColumn" prefWidth="143.0" text="Vrijeme" />
                                       </columns>
                                     </TableView>
-                                    <Button layoutX="157.0" layoutY="693.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="138.0" text="Prikazi">
+                                    <Button layoutX="157.0" layoutY="693.0" mnemonicParsing="false" onAction="#showTerminalInterractions" prefHeight="49.0" prefWidth="138.0" text="Prikazi">
                                        <graphic>
                                           <FontAwesomeIcon glyphName="SEARCH" size="1.5em" />
                                        </graphic>
@@ -489,8 +508,8 @@
                                           <Font size="16.0" />
                                        </font>
                                     </Button>
-                                    <TextField alignment="CENTER" layoutX="152.0" layoutY="661.0" promptText="format vremena" />
-                                    <Label layoutX="79.0" layoutY="637.0" text="Prikaz svih interakcija nakon unesenog vremena">
+                                    <TextField fx:id="interractionsTimeField" alignment="CENTER" layoutX="152.0" layoutY="661.0" promptText="minuta" />
+                                    <Label layoutX="79.0" layoutY="637.0" text="Prikaz svih interakcija ne starijih od posljednjih:">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -500,29 +519,138 @@
                                           <Font name="System Bold Italic" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TableView layoutX="465.0" layoutY="49.0" prefHeight="730.0" prefWidth="428.0">
+                                    <TableView fx:id="routeHistoryTable" layoutX="465.0" layoutY="49.0" prefHeight="730.0" prefWidth="428.0">
                                       <columns>
-                                        <TableColumn prefWidth="126.0" text="Vrijeme pocetka" />
-                                        <TableColumn prefWidth="50.0" text="Linija" />
-                                          <TableColumn prefWidth="138.0" text="Vozac" />
-                                          <TableColumn prefWidth="113.0" text="Vrijeme zavrsetka" />
+                                        <TableColumn fx:id="routeHistoryStartTimeColumn" prefWidth="152.0" text="Vrijeme pocetka" />
+                                        <TableColumn fx:id="routeHistoryRouteColumn" prefWidth="54.0" text="Linija" />
+                                          <TableColumn fx:id="routeHistoryDriverColumn" prefWidth="55.0" text="Vozac" />
+                                          <TableColumn fx:id="routeHistoryEndTimeColumn" prefWidth="166.0" text="Vrijeme zavrsetka" />
                                       </columns>
                                     </TableView>
                                  </children>
                               </AnchorPane>
-                              <Button layoutX="69.0" layoutY="705.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="163.0">
+                              <Button layoutX="69.0" layoutY="705.0" mnemonicParsing="false" onAction="#showFilteredTerminals" prefHeight="43.0" prefWidth="163.0">
                                  <graphic>
                                     <FontAwesomeIcon glyphName="SEARCH" size="2em" />
                                  </graphic>
                               </Button>
-                              <RadioButton layoutX="51.0" layoutY="606.0" mnemonicParsing="false" text="Aktivni" />
-                              <RadioButton layoutX="194.0" layoutY="606.0" mnemonicParsing="false" text="Neaktivni" />
+                              <RadioButton fx:id="activeTerminals" layoutX="51.0" layoutY="606.0" mnemonicParsing="false" text="Aktivni">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="terminalsStatus" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton fx:id="inactiveTerminals" layoutX="194.0" layoutY="606.0" mnemonicParsing="false" text="Neaktivni" toggleGroup="$terminalsStatus" />
                               <Label layoutX="23.0" layoutY="641.0" text="Odaberi prevoznika:">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <ChoiceBox layoutX="147.0" layoutY="639.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="terminalTransporterChoiceBox" layoutX="147.0" layoutY="639.0" prefWidth="150.0" />
+                              <Button layoutX="43.0" layoutY="672.0" mnemonicParsing="false" onAction="#showTerminalDetails" prefHeight="25.0" prefWidth="249.0" text="Prikaži detaljno" />
+                              <Label fx:id="terminalsInfoLabel" alignment="CENTER" layoutX="14.0" layoutY="758.0" prefHeight="17.0" prefWidth="304.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="ticketsForm" layoutX="10.0" layoutY="10.0" prefHeight="561.0" prefWidth="901.0" visible="false">
+                           <children>
+                              <TableView fx:id="ticketsTable" layoutX="417.0" prefHeight="577.0" prefWidth="694.0">
+                                 <columns>
+                                    <TableColumn fx:id="ticketsNameColumn" prefWidth="254.0" text="Naziv" />
+                                    <TableColumn fx:id="ticketsPriceColumn" prefWidth="86.0" text="Cijena" />
+                                    <TableColumn fx:id="ticketsAmountColumn" prefWidth="79.0" text="Količina" />
+                                    <TableColumn fx:id="ticketsDurationColumn" prefWidth="118.0" text="Trajanje (u danima)" />
+                                    <TableColumn fx:id="ticketsStatusColumn" prefWidth="156.0" text="Status" />
+                                 </columns>
+                              </TableView>
+                              <AnchorPane fx:id="userForm12" prefHeight="779.0" prefWidth="417.0">
+                                 <children>
+                                    <Label layoutX="74.0" layoutY="29.0" text="Dodavanje nove karte">
+                                       <font>
+                                          <Font name="System Bold Italic" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="9.0" layoutY="80.0" text="Naziv:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="7.0" layoutY="130.0" text="Cijena:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="7.0" layoutY="231.0" text="Naziv dokumentacije:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="ticketNameField" layoutX="54.0" layoutY="80.0" />
+                                    <TextField fx:id="ticketPriceField" layoutX="54.0" layoutY="130.0" prefHeight="25.0" prefWidth="57.0" />
+                                    <Line endX="50.0" endY="0.5" layoutX="308.0" layoutY="67.0" startX="-316.0" startY="0.5" />
+                                    <Line endX="83.0" endY="0.5" layoutX="278.0" layoutY="411.0" startX="-286.0" startY="0.5" />
+                                    <Label layoutY="365.0" text="Odaberi prevoznike:">
+                                       <font>
+                                          <Font name="System Italic" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox fx:id="ticketTransportersChoiceBox" layoutX="153.0" layoutY="365.0" prefHeight="25.0" prefWidth="189.0" />
+                                    <Button layoutX="103.0" layoutY="440.0" mnemonicParsing="false" onAction="#addNewTicket" prefHeight="38.0" prefWidth="144.0" text="Dodaj" />
+                                    <Label fx:id="ticketInfoLabel" alignment="CENTER" layoutX="14.0" layoutY="641.0" prefHeight="26.0" prefWidth="621.0" />
+                                    <RadioButton fx:id="needsDocumentationRadio" layoutX="46.0" layoutY="186.0" mnemonicParsing="false" text="Zahtjeva dokumentaciju" />
+                                    <RadioButton fx:id="periodicRadio" layoutX="54.0" layoutY="284.0" mnemonicParsing="false" text="Periodična">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="ticketStatus" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="amountRadio" layoutX="235.0" layoutY="284.0" mnemonicParsing="false" text="Količinska" toggleGroup="$ticketStatus" />
+                                    <TextField fx:id="ticketInputField" alignment="CENTER" layoutX="128.0" layoutY="313.0" prefHeight="25.0" prefWidth="132.0" promptText="vrijednost" />
+                                    <TextField fx:id="documentationNameField" layoutX="160.0" layoutY="231.0" />
+                                 </children>
+                              </AnchorPane>
+                              <Button layoutX="418.0" layoutY="575.0" mnemonicParsing="false" onAction="#previousTicketsPage" prefHeight="25.0" prefWidth="370.0" text="Prethodna stranica" />
+                              <Button layoutX="787.0" layoutY="575.0" mnemonicParsing="false" onAction="#nextTicketsPage" prefHeight="25.0" prefWidth="324.0" text="Sljedeca stranica" />
+                              <Button layoutX="741.0" layoutY="702.0" mnemonicParsing="false" onAction="#showFilteredTickets" prefHeight="43.0" prefWidth="89.0">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="SEARCH" size="2em" />
+                                 </graphic>
+                              </Button>
+                              <Label layoutX="645.0" layoutY="652.0" text="Pretraži po prevozniku" />
+                              <ChoiceBox fx:id="ticketsByTransporterChoiceBox" layoutX="777.0" layoutY="648.0" prefWidth="150.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="routesForm" layoutX="10.0" layoutY="10.0" prefHeight="789.0" prefWidth="1223.0" visible="false">
+                           <children>
+                              <TableView fx:id="routesTable" layoutX="205.0" layoutY="35.0" prefHeight="598.0" prefWidth="347.0">
+                                 <columns>
+                                    <TableColumn fx:id="routesIdColumn" prefWidth="49.0" text="Id" />
+                                    <TableColumn fx:id="routesTransporterColumn" prefWidth="149.0" text="Ime prevoznika" />
+                                    <TableColumn fx:id="routesNameColumn" prefWidth="47.0" text="Linija" />
+                                    <TableColumn fx:id="routesStatusColumn" prefWidth="101.0" text="Status" />
+                                 </columns>
+                              </TableView>
+                              <Label layoutX="718.0" layoutY="228.0" text="Dodavanje nove linije">
+                                 <font>
+                                    <Font name="System Bold Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="647.0" layoutY="312.0" text="Oznaka nove linije:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="newRouteField" layoutX="765.0" layoutY="309.0" prefHeight="25.0" prefWidth="207.0" />
+                              <Button layoutX="733.0" layoutY="416.0" mnemonicParsing="false" onAction="#addNewRoute" prefHeight="39.0" prefWidth="173.0" text="Dodaj" />
+                              <Label fx:id="routesInfoLabel" alignment="CENTER" layoutX="611.0" layoutY="474.0" prefHeight="17.0" prefWidth="416.0" />
+                              <ChoiceBox fx:id="routesTransportersChoiceBox" layoutX="304.0" layoutY="674.0" prefWidth="150.0" />
+                              <Label layoutX="322.0" layoutY="648.0" text="Prikaži po prevozniku" />
+                              <Button layoutX="289.0" layoutY="716.0" mnemonicParsing="false" onAction="#getFilteredRoutes" prefHeight="35.0" prefWidth="179.0" text="Prikazi">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="SEARCH" size="1.5em" />
+                                 </graphic>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Button>
+                              <Label layoutX="712.0" layoutY="362.0" text="Prevoznik:" />
+                              <ChoiceBox fx:id="newRouteTransporterChoiceBox" layoutX="774.0" layoutY="358.0" prefWidth="150.0" />
                            </children>
                         </AnchorPane>
                      </children>

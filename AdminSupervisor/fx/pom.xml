@@ -40,6 +40,12 @@
             <artifactId>fontawesomefx</artifactId>
             <version>8.2</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-web -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-web</artifactId>
+            <version>21-ea+24</version>
+        </dependency>
     </dependencies>
 
     <build>

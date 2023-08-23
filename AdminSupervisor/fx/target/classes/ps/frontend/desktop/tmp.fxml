@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="755.0" prefWidth="1212.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ps.frontend.desktop.controllers.SupervisorFirstViewController">
+  <children>
+    <AnchorPane fx:id="mainForm" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="755.0" prefWidth="1212.0" VBox.vgrow="ALWAYS">
+         <children>
+            <AnchorPane fx:id="initialPane" layoutX="206.0" layoutY="31.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="729.0" prefWidth="1007.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+               <children>
+                  <ImageView fitHeight="490.0" fitWidth="880.0" layoutX="30.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="114.9555541992188" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="92.0" AnchorPane.topAnchor="149.0">
+                     <image>
+                        <Image url="@../../../bus.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="434.0" layoutY="42.0" text="E-Ticket" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold Italic" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="32.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="210.0" style="-fx-background-color: #9c9494;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="40.0">
+               <children>
+                  <Button fx:id="transactionsButton" layoutX="10.0" layoutY="290.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="43.0" prefWidth="185.0" text="Transakcije" textAlignment="CENTER">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="MONEY" />
+                     </graphic>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="56.0" layoutY="107.0" text="Dobrodošli," textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="58.0" layoutY="138.0" text="Supervizor" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="4.0" layoutY="187.0" prefHeight="8.0" prefWidth="188.0" />
+                  <Button fx:id="usersButton" layoutX="10.0" layoutY="210.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="43.0" prefWidth="185.0" text="Korisnici" textAlignment="CENTER">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="USERS" />
+                     </graphic>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="14.0" layoutY="399.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="4.0">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="SIGN_OUT" size="2em" />
+                     </graphic>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="72.0" layoutY="686.0" text="Odjava" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="68.0" layoutY="88.0" size="7em" />
+                  <Button fx:id="driversButton" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="43.0" prefWidth="185.0" text="Vozači" textAlignment="CENTER">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="USERS" />
+                     </graphic>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="requestsButton" layoutX="10.0" layoutY="450.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="43.0" prefWidth="185.0" text="Zahtjevi" textAlignment="CENTER">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="QUESTION" size="1.5em" />
+                     </graphic>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="-1.0" layoutY="-3.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="1214.0" style="-fx-background-color: #b0a9a9;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button fx:id="closeButton" layoutX="574.0" layoutY="6.0" mnemonicParsing="false" onAction="#close" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="6.0">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="TIMES" />
+                     </graphic>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="14.0" layoutY="9.0" prefHeight="27.0" prefWidth="285.0" text="Supervizorska aplikacija E-ticket">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="BUS" />
+                     </graphic>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="usersForm" layoutX="206.0" layoutY="31.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="729.0" prefWidth="1007.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+               <children>
+                  <TableView fx:id="usersTable" prefHeight="606.0" prefWidth="752.0" style="-fx-background-color: #dbd9d9;" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="nameCollum" prefWidth="165.5998992919922" text="Ime" />
+                      <TableColumn fx:id="surnameCollum" prefWidth="212.80010986328125" text="Prezime" />
+                        <TableColumn fx:id="mailCollum" minWidth="0.0" prefWidth="230.13327026367188" text="E-mail" />
+                        <TableColumn fx:id="creditCollum" minWidth="0.0" prefWidth="142.4000244140625" text="Kredit" />
+                    </columns>
+                  </TableView>
+                  <AnchorPane layoutX="33.0" layoutY="-9.0" prefHeight="86.0" prefWidth="752.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TextField fx:id="nameField" layoutX="20.0" layoutY="29.0" promptText="Ime" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="32.0" />
+                        <TextField fx:id="surnameField" layoutX="245.0" layoutY="32.0" promptText="Prezime" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="32.0" />
+                        <TextField fx:id="mailField" layoutX="401.0" layoutY="32.0" promptText="E-mail" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="360.0" AnchorPane.topAnchor="32.0" />
+                        <Button fx:id="searchButton" layoutX="654.0" layoutY="19.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="60.0" AnchorPane.bottomAnchor="18.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="19.0">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="SEARCH" size="2.5em" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="userForm" layoutX="750.0" layoutY="1.0" prefHeight="715.0" prefWidth="252.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TableView fx:id="userTicketsTable" layoutX="7.0" layoutY="491.0" prefHeight="200.0" prefWidth="252.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="491.0">
+                          <columns>
+                            <TableColumn fx:id="ticketNameCollum" prefWidth="122.13336181640625" text="Naziv" />
+                            <TableColumn fx:id="transporterCollum" prefWidth="129.066650390625" text="Prevoznik" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="60.0" layoutY="194.0" text="Ime:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="38.0" layoutY="229.0" text="Prezime:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="51.0" layoutY="264.0" text="Kredit:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nameLabel" layoutX="98.0" layoutY="194.0" prefHeight="18.0" prefWidth="112.0" />
+                        <Label fx:id="surnameLabel" layoutX="98.0" layoutY="229.0" prefHeight="18.0" prefWidth="112.0" />
+                        <Label fx:id="creditLabel" layoutX="98.0" layoutY="264.0" prefHeight="18.0" prefWidth="112.0" />
+                        <Button fx:id="userCreditAddCreditButton" layoutX="79.0" layoutY="448.0" mnemonicParsing="false" text="Uplata Kredita" />
+                        <Label layoutX="74.0" layoutY="345.0" text="Uplata kredita">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="26.0" layoutY="327.0" prefWidth="200.0">
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                        </Separator>
+                        <Label layoutX="31.0" layoutY="401.0" text="Iznos:">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="usersCreditAddTextField" layoutX="80.0" layoutY="400.0" />
+                        <Button fx:id="userCreditPrevButton" layoutX="2.0" layoutY="689.0" mnemonicParsing="false" prefWidth="126.0" text="&lt;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+                        <Button fx:id="userCreditNextButton" layoutX="112.0" layoutY="687.0" mnemonicParsing="false" prefWidth="126.0" text="&gt;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <ImageView fx:id="userCreditUserPicture" fitHeight="128.0" fitWidth="170.0" layoutX="39.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="43.0" AnchorPane.topAnchor="41.0" />
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="previousButton" layoutY="689.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="376.0" text="&lt;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+                  <Button fx:id="nextButton" layoutX="374.0" layoutY="689.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="376.0" text="&gt;" AnchorPane.bottomAnchor="0.0" />
+               </children></AnchorPane>
+            <AnchorPane fx:id="transactionPane" layoutX="220.0" layoutY="50.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="729.0" prefWidth="1007.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+               <children>
+                  <TableView fx:id="transactionsTable" layoutX="77.0" layoutY="158.0" prefHeight="715.0" prefWidth="518.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="transactionEmailColumn" prefWidth="142.93336486816406" text="E-mail" />
+                      <TableColumn fx:id="transactionCostColumn" minWidth="0.0" prefWidth="131.46661376953125" text="Vrijednost" />
+                        <TableColumn fx:id="transactionTimeColumn" prefWidth="92.26663208007812" text="Vrijeme" />
+                        <TableColumn fx:id="transactionTerminalidColumn" prefWidth="149.3333740234375" text="Terminal ID" />
+                    </columns>
+                  </TableView>
+                  <AnchorPane layoutX="513.0" layoutY="94.0" prefHeight="715.0" prefWidth="483.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TextField fx:id="transSearchFromTime" layoutX="332.0" layoutY="448.0" promptText="Vrijeme od" />
+                        <Label layoutX="34.0" layoutY="34.0" prefHeight="27.0" prefWidth="227.0" text="Prikaži transakcije za korisnika: " AnchorPane.leftAnchor="34.0" AnchorPane.topAnchor="34.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="34.0" layoutY="136.0" text="Prikaži transakcije za terminal:" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="136.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="9.0" layoutY="96.0" prefHeight="14.0" prefWidth="470.0">
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                        </Separator>
+                        <Separator layoutX="9.0" layoutY="213.0" prefHeight="14.0" prefWidth="470.0">
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                        </Separator>
+                        <Separator layoutX="9.0" layoutY="407.0" prefHeight="14.0" prefWidth="470.0">
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                        </Separator>
+                        <Button fx:id="transactionSearchButton" layoutX="224.0" layoutY="622.0" mnemonicParsing="false">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="SEARCH" />
+                           </graphic>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="11.0" layoutY="347.0" text="Prikaži transakcije nakon unesenog vremena:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="347.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="transSearchUser" layoutX="261.0" layoutY="33.0" promptText="Korisnik ID" />
+                        <TextField fx:id="transSearchTerminal" layoutX="255.0" layoutY="133.0" promptText="Terminal ID" />
+                        <TextField fx:id="transSearchTime" layoutX="332.0" layoutY="345.0" promptText="Format vremena" />
+                        <Label layoutX="14.0" layoutY="452.0" text="Prikaži transakciju između unesenih vremena:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="452.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="transSearchToTime" layoutX="332.0" layoutY="497.0" promptText="Vrijeme do" />
+                        <Separator layoutX="98.0" layoutY="256.0" prefWidth="200.0" />
+                        <Label layoutX="34.0" layoutY="244.0" text="Prikaži transakcije za supervizora:" AnchorPane.leftAnchor="34.0" AnchorPane.topAnchor="244.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="transSearchSupervisorId" layoutX="275.0" layoutY="242.0" promptText="Supervizor ID" />
+                        <Separator layoutX="9.0" layoutY="315.0" prefHeight="14.0" prefWidth="470.0">
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                        </Separator>
+                        <Separator layoutX="9.0" layoutY="536.0" prefHeight="14.0" prefWidth="470.0">
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                        </Separator>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="driversPane" layoutX="220.0" layoutY="50.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="729.0" prefWidth="1007.0" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+               <children>
+                  <TableView fx:id="driverTableView" layoutX="146.0" layoutY="180.0" prefHeight="498.0" prefWidth="606.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="driverNameColumn" prefWidth="95.46672058105469" text="Ime" />
+                      <TableColumn fx:id="driverSurnameColumn" prefWidth="119.73330688476562" text="Prezime" />
+                        <TableColumn fx:id="driverJMBColumn" prefWidth="130.13330078125" text="JMB" />
+                        <TableColumn fx:id="driverPinColumn" prefWidth="93.60003662109375" text="Pin" />
+                        <TableColumn fx:id="driverStatusColumn" prefWidth="72.0" text="Status" />
+                        <TableColumn fx:id="driverSupervisorIDColumn" prefWidth="94.4000244140625" text="Supervizor ID" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="driversPrevPageButton" layoutY="499.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="303.0" text="&lt;" />
+                  <Button fx:id="driversNextPageButton" layoutX="303.0" layoutY="499.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="303.0" text="&gt;" />
+                  <Button fx:id="driverSearchButton" layoutX="269.0" layoutY="643.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="68.0">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="SEARCH" size="2em" />
+                     </graphic>
+                  </Button>
+                  <CheckBox fx:id="driverActiveCheckBox" layoutX="38.0" layoutY="562.0" mnemonicParsing="false" text="Aktivan" />
+                  <CheckBox fx:id="driverInactiveCheckBox" layoutX="38.0" layoutY="600.0" mnemonicParsing="false" text="Neaktivan" />
+                  <AnchorPane fx:id="driverRegistrationPane" layoutX="689.0" layoutY="104.0" prefHeight="715.0" prefWidth="395.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label layoutX="95.0" layoutY="44.0" text="Registracija vozača">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="44.0" layoutY="99.0" prefHeight="3.0" prefWidth="318.0">
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                        </Separator>
+                        <Label layoutX="77.0" layoutY="140.0" text="Ime:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="47.0" layoutY="190.0" text="Prezime:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="79.0" layoutY="240.0" text="Pin:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="74.0" layoutY="290.0" text="JMB:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="driverRegistrationName" layoutX="120.0" layoutY="140.0" />
+                        <TextField fx:id="driverRegistrationSurname" layoutX="120.0" layoutY="192.0" />
+                        <TextField fx:id="driverRegistrationPin" layoutX="120.0" layoutY="239.0" />
+                        <TextField fx:id="driverRegistrationJMB" layoutX="120.0" layoutY="290.0" />
+                        <Separator layoutX="44.0" layoutY="421.0" prefHeight="3.0" prefWidth="318.0">
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                        </Separator>
+                        <Button fx:id="driverRegisterButton" layoutX="129.0" layoutY="483.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="125.0" text="Registruj">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="driverStatusPane" layoutX="678.0" layoutY="57.0" prefHeight="715.0" prefWidth="396.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label layoutX="115.0" layoutY="61.0" text="Ime:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="driver" layoutX="81.0" layoutY="110.0" text="Prezime:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="driverStatusNameLabel" layoutX="157.0" layoutY="60.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="driverStatusSurnameLabel" layoutX="162.0" layoutY="110.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="114.0" layoutY="157.0" text="JMB:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="driverStatusJMBLabel" layoutX="156.0" layoutY="157.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="117.0" layoutY="209.0" text="Pin:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="driverStatusPinLabel" layoutX="152.0" layoutY="209.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="33.0" layoutY="258.0" text="Supervizor ID:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="driverStatusSupervisorIDLabel" layoutX="154.0" layoutY="257.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="88.0" layoutY="311.0" text="Status:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="driverStatusStatusLabel" layoutX="155.0" layoutY="311.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="driverStatusChangeAcceptButton" layoutX="158.0" layoutY="464.0" mnemonicParsing="false" text="Potvrdi">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <ChoiceBox fx:id="driverStatusChangeChoiceBox" layoutX="117.0" layoutY="383.0" prefWidth="150.0" />
+                        <Separator layoutX="23.0" layoutY="357.0" prefHeight="2.0" prefWidth="344.0">
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                        </Separator>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="requestsPane" layoutX="457.0" layoutY="131.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+               <children>
+                  <TableView fx:id="requestsTicketRequestsTableView" layoutX="34.0" layoutY="145.0" prefHeight="540.0" prefWidth="476.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="145.0">
+                    <columns>
+                        <TableColumn fx:id="requestsTicketRequestsUserName" prefWidth="128.5333709716797" text="Ime" />
+                        <TableColumn fx:id="requestsTicketRequestsUserSurname" prefWidth="119.46661376953125" text="Prezime" />
+                      <TableColumn fx:id="requestsTicketRequestsUserID" prefWidth="104.53326416015625" text="Korisnički ID" />
+                      <TableColumn fx:id="requestsTicketRequestsTicketType" prefWidth="123.46673583984375" text="Tip tiketa" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="31.0" layoutY="20.0" text="Pregled tiket zahtjeva">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="requestsTicketRequestsPrevPageButton" layoutX="9.0" layoutY="689.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="238.0" text="&lt;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+                  <Button fx:id="requestsTicketRequestsNextPageButton" layoutX="238.0" layoutY="684.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="238.0" text="&gt;" AnchorPane.bottomAnchor="0.8000000000000682" />
+                  <Label layoutX="19.0" layoutY="75.0" text="Supervizor ID:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="requestsTicketRequestsSupervisorIDTextField" layoutX="114.0" layoutY="73.0" prefHeight="26.0" prefWidth="84.0" />
+                  <Button fx:id="requestsTicketRequestsSupervisorIDSearchButton" layoutX="215.0" layoutY="70.0" mnemonicParsing="false">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="SEARCH" />
+                     </graphic>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Separator layoutX="480.0" layoutY="18.0" orientation="VERTICAL" prefHeight="200.0" AnchorPane.bottomAnchor="2.0" AnchorPane.topAnchor="18.0">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Separator>
+                  <AnchorPane fx:id="requestsTicketProcessingPane" layoutX="105.0" layoutY="-5.0" prefHeight="715.0" prefWidth="516.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label layoutX="127.0" layoutY="19.0" text="Obrada zahtjeva za tiket">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="32.0" layoutY="126.0" prefWidth="448.0">
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                        </Separator>
+                        <Separator layoutX="32.0" layoutY="585.0" prefHeight="2.0" prefWidth="448.0">
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                        </Separator>
+                        <Label layoutX="196.0" layoutY="98.0" text="Odabrani zahtjev">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <Label layoutX="106.0" layoutY="418.0" text="Korisnički ID:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="127.0" layoutY="460.0" text="Tip tiketa:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="requestsTicketProcessingUserIDLabel" layoutX="219.0" layoutY="418.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="requestsTicketProcessingTicketTypeLabel" layoutX="210.0" layoutY="460.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="requestsTicketResponseAcceptButton" layoutX="87.0" layoutY="613.0" mnemonicParsing="false">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="CHECK" />
+                           </graphic>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="requestsTicketResponseRejectButton" layoutX="382.0" layoutY="613.0" mnemonicParsing="false">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="TIMES" />
+                           </graphic>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="172.0" layoutY="304.0" text="Ime:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="140.0" layoutY="343.0" text="Prezime:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="171.0" layoutY="383.0" text="JMB:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="149.0" layoutY="503.0" text="E-mail:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="requestsTicketProcessingUserNameLabel" layoutX="209.0" layoutY="304.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="requestsTicketProcessingUserSurnameLabel" layoutX="211.0" layoutY="344.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="requestsTicketProcessingUserJMBLabel" layoutX="210.0" layoutY="382.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="requestsTicketProcessingUserEmailLabel" layoutX="206.0" layoutY="502.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="requestsTicketProcessingUserPictureBox" fitHeight="144.0" fitWidth="189.0" layoutX="171.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label layoutX="40.0" layoutY="543.0" text="Priloženi dokumenti:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink fx:id="requestsTicketProcessingDocumentsHyperlink" layoutX="209.0" layoutY="539.0" text="Dokumenti">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Hyperlink>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="requestsTicketResponsePane" layoutX="630.0" prefHeight="715.0" prefWidth="517.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TextField fx:id="requestsTicketResponseSupervisorID" layoutX="236.0" layoutY="73.0" prefHeight="26.0" prefWidth="94.0" />
+                        <Label layoutX="108.0" layoutY="19.0" text="Pregled obrada zahtjeva za tiket">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="131.0" layoutY="74.0" text="Supervizor ID:">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="requestsTicketResponseSearchButton" layoutX="352.0" layoutY="72.0" mnemonicParsing="false">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="SEARCH" />
+                           </graphic>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <TableView fx:id="requestsTicketResponseTableView" prefHeight="540.0" prefWidth="514.0" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="145.0">
+                          <columns>
+                              <TableColumn fx:id="requestsTicketResponseUserName" prefWidth="97.59997713565826" text="Ime" />
+                              <TableColumn fx:id="requestsTicketResponseUserSurname" prefWidth="108.79998016357422" text="Prezime" />
+                            <TableColumn fx:id="requestsTicketResponseUserID" prefWidth="106.66668701171875" text="Korisnički ID" />
+                            <TableColumn fx:id="requestsTicketResponseTicketType" minWidth="0.0" prefWidth="89.3333740234375" text="Tip Tiketa" />
+                              <TableColumn fx:id="requestsTicketResponseTicketStatus" prefWidth="113.60012817382812" text="Status tiketa" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="requestsTicketResponseNextPageButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="257.0" text="&gt;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <Button fx:id="requestsTicketResponsePrevPageButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="257.0" text="&lt;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="257.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
