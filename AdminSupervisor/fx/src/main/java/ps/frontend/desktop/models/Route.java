@@ -3,7 +3,7 @@ package ps.frontend.desktop.models;
 public class Route {
     
     private String name;
-    private boolean isActive;
+    private boolean isActive = true;
     private Integer transporterId;
     private Integer id;
     

@@ -54,6 +54,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import ps.frontend.desktop.App;
@@ -77,7 +78,7 @@ public class SupervisorFirstViewController implements Initializable{
 
     @FXML
     private Label supervisorWelcomeNameLabel, usersInfoLabel, userNameLabel, userLastNameLabel, creditLabel, transactionsInfoLabel, driversInfoLabel,
-    pickedRequestLabel, requestInfoLabel, documentationInfoLabel, documentInfoLabel;
+    pickedRequestLabel, requestInfoLabel, documentationInfoLabel, documentInfoLabel, supervisorTransporterName;
 
     @FXML
     private TextField creditInputField, userFirstNameField, userLastNameField, userEmailField, timeAfterField, timeFromField, timeUntilField,
@@ -96,7 +97,7 @@ public class SupervisorFirstViewController implements Initializable{
     private RadioButton activeDrivers, inactiveDrivers;
 
     @FXML
-    private TextField driversNameField, driversLastNameField, driversPinField, driversJMBField, documentNameField;
+    private TextField driversNameField, driversLastNameField, driversPinField, driversJMBField;
 
     @FXML
     private TableView userTicketsTable, transactionsTable, driversTable, ticketRequestsTable, ticketResponsesTable;
@@ -130,6 +131,9 @@ public class SupervisorFirstViewController implements Initializable{
 
     @FXML
     private ImageView userImage;
+
+    @FXML
+    private Text doc1Text, doc2Text, doc3Text;
 
     private String token = null;
     private int allTransactionsPage = 0;
@@ -167,6 +171,7 @@ public class SupervisorFirstViewController implements Initializable{
         responsesForm.setVisible(false);
         initializeUsersForm();
         transporters = getAllTransporters();  
+        supervisorTransporterName.setText(getTransporterNameFromId(supervisorId));
         tickets = getAllTickets();
     }
 
@@ -227,22 +232,16 @@ public class SupervisorFirstViewController implements Initializable{
         }
     }
     
-    public void searchDocument(ActionEvent event) throws Exception{
+    public void searchDocument(String docName) throws Exception{
 
-        if(documentNameField.getText().isEmpty())
-            documentInfoLabel.setText("Morate ukucati naziv dokumenta");
-        else{
-            byte[] documentBytes = getDocument(pickedUser, documentNameField.getText());
+            byte[] documentBytes = getDocument(pickedUser, docName);
             if(documentBytes != null){
                 String userId = String.valueOf(pickedUser.getId());
-                String fileName = documentNameField.getText() + ".pdf";
+                String fileName = docName + ".pdf";
                 String filePath = "AdminSupervisor\\fx\\src\\main\\resources\\" + userId + "\\" + fileName;
                 savePDFToFile(documentBytes, filePath);
                 openPDFWithDesktop(filePath);
             }
-            else
-                documentInfoLabel.setText("Korisnik nema traženi dokument");
-        }
     }
 
     public static void openPDFWithDesktop(String filePath) throws IOException {
@@ -344,7 +343,7 @@ public class SupervisorFirstViewController implements Initializable{
 
         URL url;
         try {
-            url = new URL(App.BASE_URL + "tickets/getInUseTicketsForTransporter/" + supervisor.getTransporterId());
+            url = new URL(App.BASE_URL + "tickets/getAllTickets/pagesize=0size=1000");
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             
@@ -417,7 +416,12 @@ public class SupervisorFirstViewController implements Initializable{
     private void showRequest(TicketRequest request){
 
         pickedRequestLabel.setText(request.toString());
-        documentationInfoLabel.setText("Potrebna dokumentacija: " + getDocumentationInfo(request.getTicketTypeId()));
+        String docInfo = getDocumentationInfo(request.getTicketTypeId());
+        if(docInfo == null){
+            tickets = getAllTickets();
+            docInfo = getDocumentationInfo(request.getTicketTypeId());
+        }
+        documentationInfoLabel.setText("Potrebna dokumentacija: " + docInfo);
     }
 
     private String getDocumentationInfo(int id){
@@ -465,12 +469,24 @@ public class SupervisorFirstViewController implements Initializable{
 
             int responseCode = conn.getResponseCode();
             if(responseCode == 200){
+                BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	            String line;
+	            StringBuilder response = new StringBuilder();
+	            
+	            while ((line = reader.readLine()) != null) {
+	                response.append(line);
+	            }
+	            
+	            reader.close();
                 initializeRequestsForm();
                 requestInfoLabel.setText("");
                 documentationInfoLabel.setText("");
                 pickedRequestLabel.setText("");
                 pickedRequest = null;
-                requestInfoLabel.setText("Zahtjev uspješno obrađen");
+                if("Ticked Request Processed and Ticket bought".compareTo(response.toString()) == 0)
+                    requestInfoLabel.setText("Zahtjev uspješno obrađen. Karta kupljena.");
+                else    
+                    requestInfoLabel.setText("Zahtjev uspješno obrađen. Karta nije kupljena.");
             }
             else
                 requestInfoLabel.setText("Greška pri obradi zahtjeva");
@@ -641,8 +657,8 @@ public class SupervisorFirstViewController implements Initializable{
         driversJMBField.getText().isEmpty())
             driversInfoLabel.setText("Sva polja moraju biti unesena.");
         else{
-            Driver driver = new Driver(driversPinField.getText(), driversNameField.getText(), driversLastNameField.getText(), 
-            driversJMBField.getText(), supervisor.getTransporterId());
+            Driver driver = new Driver(driversPinField.getText(), driversLastNameField.getText(), 
+            driversJMBField.getText(),  driversNameField.getText(), supervisor.getTransporterId());
             URL url;
             try {
                 url = new URL(App.BASE_URL + "pinusers/register/driverBySupervisorId=" + supervisorId);
@@ -1495,6 +1511,18 @@ public class SupervisorFirstViewController implements Initializable{
         userNameLabel.setText(user.getFirstName());
         userLastNameLabel.setText(user.getLastName());
         creditLabel.setText(user.getCredit().toString());
+        if(user.getDocumentName1() != null)
+            doc1Text.setText(user.getDocumentName1());
+        else
+            doc1Text.setText("");
+        if(user.getDocumentName2() != null)
+            doc2Text.setText(user.getDocumentName2());
+        else
+            doc2Text.setText("");
+        if(user.getDocumentName3() != null)
+            doc3Text.setText(user.getDocumentName3());
+        else
+            doc3Text.setText("");
         this.usageColumn.setCellValueFactory(new PropertyValueFactory<UserTicket, String>("Usage"));
         this.validUntilColumn.setCellValueFactory(new PropertyValueFactory<UserTicket, String>("ValidUntilDate"));
         this.ticketNameColumn.setCellValueFactory(new Callback<CellDataFeatures<UserTicket, String>, ObservableValue<String>>() {
@@ -1511,6 +1539,33 @@ public class SupervisorFirstViewController implements Initializable{
         byte[] picture = getProfilePicture(user);
         if(picture != null)
             userImage.setImage(new Image(new ByteArrayInputStream(picture)));
+    }
+
+    public void showDoc1(){
+        
+        if(pickedUser.getDocumentName1() != null)
+            try {
+                searchDocument(pickedUser.getDocumentName1());
+            } catch (Exception e) {
+            }
+    }
+
+    public void showDoc2(){
+        
+        if(pickedUser.getDocumentName2() != null)
+            try {
+                searchDocument(pickedUser.getDocumentName2());
+            } catch (Exception e) {
+            }
+    }
+
+    public void showDoc3(){
+        
+        if(pickedUser.getDocumentName3() != null)
+            try {
+                searchDocument(pickedUser.getDocumentName3());
+            } catch (Exception e) {
+            }
     }
 
     private byte[] getProfilePicture(User user){

@@ -851,6 +851,14 @@ public class AdminFirstViewController implements Initializable {
                 return new SimpleStringProperty(getUserNameFromId(scanInterraction.getId().getUserId()));
             }
         });
+
+        scanRouteColumn.setCellValueFactory(new Callback<CellDataFeatures<ScanInterraction, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(CellDataFeatures<ScanInterraction, String> cellData) {
+                ScanInterraction scanInterraction = cellData.getValue();
+                return new SimpleStringProperty(getRouteNameFromId(scanInterraction.getId().getRouteHistoryRouteId()));
+            }
+        });
         scanTimeColumn.setCellValueFactory(new Callback<CellDataFeatures<ScanInterraction, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(CellDataFeatures<ScanInterraction, String> cellData) {
@@ -883,6 +891,22 @@ public class AdminFirstViewController implements Initializable {
                     return new SimpleStringProperty("");
             }
         });
+        routeHistoryRouteColumn.setCellValueFactory(new Callback<CellDataFeatures<RouteHistory, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(CellDataFeatures<RouteHistory, String> cellData) {
+                RouteHistory routeHistory = cellData.getValue();
+
+                return new SimpleStringProperty(getRouteNameFromId(routeHistory.getPrimaryKey().getRouteId()));
+            }
+        });
+    }
+
+    private String getRouteNameFromId(int id){
+        List<Route> routes = getAllRoutes();
+        for(int i = 0; i < routes.size(); i++)
+            if(routes.get(i).getId() == id)
+                return routes.get(i).getName();
+        return null;
     }
 
     private String getUserNameFromId(int userId){

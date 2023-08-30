@@ -17,6 +17,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="815.0" prefWidth="1412.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ps.frontend.desktop.controllers.SupervisorFirstViewController">
    <children>
@@ -49,13 +50,13 @@
                               <Font name="Arial Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Line endX="82.0" layoutX="99.0" layoutY="158.0" startX="-79.5" stroke="WHITE" />
-                        <Button fx:id="usersButton" layoutX="26.0" layoutY="173.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Korisnici">
+                        <Line endX="82.0" layoutX="99.0" layoutY="193.0" startX="-79.5" stroke="WHITE" />
+                        <Button fx:id="usersButton" layoutX="26.0" layoutY="208.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Korisnici">
                            <graphic>
                               <FontAwesomeIcon glyphName="USERS" size="1.5em" />
                            </graphic>
                         </Button>
-                        <Button fx:id="transactionsButton" layoutX="26.0" layoutY="275.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Transakcije">
+                        <Button fx:id="transactionsButton" layoutX="26.0" layoutY="310.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Transakcije">
                            <graphic>
                               <FontAwesomeIcon glyphName="MONEY" size="1.5em" />
                            </graphic>
@@ -70,21 +71,26 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Button fx:id="driversButton" layoutX="26.0" layoutY="377.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Vozači">
+                        <Button fx:id="driversButton" layoutX="26.0" layoutY="412.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Vozači">
                            <graphic>
                               <FontAwesomeIcon glyphName="USERS" size="1.5em" />
                            </graphic>
                         </Button>
-                        <Button fx:id="requestsButton" layoutX="26.0" layoutY="479.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Zahtjevi">
+                        <Button fx:id="requestsButton" layoutX="26.0" layoutY="514.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Zahtjevi">
                            <graphic>
                               <FontAwesomeIcon glyphName="QUESTION" size="1.5em" />
                            </graphic>
                         </Button>
-                        <Button fx:id="ticketResponseButton" layoutX="26.0" layoutY="581.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Odgovori">
+                        <Button fx:id="ticketResponseButton" layoutX="26.0" layoutY="616.0" mnemonicParsing="false" onAction="#switchPane" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #dbd9d9;" text="Odgovori">
                            <graphic>
                               <FontAwesomeIcon glyphName="TICKET" size="1.5em" />
                            </graphic>
                         </Button>
+                        <Label fx:id="supervisorTransporterName" alignment="CENTER" layoutX="9.0" layoutY="161.0" prefHeight="23.0" prefWidth="186.0" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </left>
@@ -139,10 +145,23 @@
                                     </TableView>
                                     <Button layoutX="257.0" layoutY="337.0" mnemonicParsing="false" onAction="#addCredit" prefHeight="25.0" prefWidth="103.0" text="Uplati kredit" />
                                     <TextField fx:id="creditInputField" alignment="CENTER" layoutX="364.0" layoutY="337.0" prefHeight="25.0" prefWidth="63.0" promptText="iznos" />
-                                    <TextField fx:id="documentNameField" alignment="CENTER" layoutX="410.0" layoutY="98.0" promptText="naziv dokumenta" />
-                                    <Label layoutX="393.0" layoutY="75.0" text="Pronađi dokument (bez ekstenzije):" />
-                                    <Button layoutX="459.0" layoutY="138.0" mnemonicParsing="false" onAction="#searchDocument" text="Traži" />
                                     <Label fx:id="documentInfoLabel" alignment="CENTER" layoutX="393.0" layoutY="186.0" prefHeight="17.0" prefWidth="185.0" />
+                                    <Text fx:id="doc1Text" fill="#2c17eb" layoutX="342.0" layoutY="73.0" onMouseClicked="#showDoc1" strokeType="OUTSIDE" strokeWidth="0.0" underline="true" wrappingWidth="250.953125">
+                                       <font>
+                                          <Font name="System Italic" size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="doc2Text" fill="#2c17eb" layoutX="343.0" layoutY="132.0" onMouseClicked="#showDoc2" strokeType="OUTSIDE" strokeWidth="0.0" underline="true" wrappingWidth="247.953125">
+                                       <font>
+                                          <Font name="System Italic" size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="doc3Text" fill="#2c17eb" layoutX="342.0" layoutY="187.0" onMouseClicked="#showDoc3" strokeType="OUTSIDE" strokeWidth="0.0" underline="true" wrappingWidth="250.953125">
+                                       <font>
+                                          <Font name="System Italic" size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Label layoutX="411.0" layoutY="23.0" text="Dokumenti korisnika:" />
                                  </children>
                               </AnchorPane>
                               <TextField fx:id="userFirstNameField" layoutX="14.0" layoutY="21.0" prefHeight="25.0" prefWidth="99.0" promptText="Ime" />

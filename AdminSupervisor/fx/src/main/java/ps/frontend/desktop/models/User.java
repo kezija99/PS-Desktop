@@ -4,6 +4,9 @@ import java.math.BigDecimal;
 
 public class User{
 
+	private String documentName1;
+	private String documentName2;
+	private String documentName3;
     private String lastName;
     private String firstName;
     private String email;
@@ -21,6 +24,18 @@ public class User{
 	public User(String firstName, String lastName) {
 		this.lastName = lastName;
 		this.firstName = firstName;
+	}
+
+	public User(String documentName1, String documentName2, String documentName3, String lastName, String firstName,
+			String email, BigDecimal credit, int id) {
+		this.documentName1 = documentName1;
+		this.documentName2 = documentName2;
+		this.documentName3 = documentName3;
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.email = email;
+		this.credit = credit;
+		this.id = id;
 	}
 
 	public User(String email) {
@@ -65,6 +80,30 @@ public class User{
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getDocumentName1() {
+		return documentName1;
+	}
+
+	public void setDocumentName1(String documentName1) {
+		this.documentName1 = documentName1;
+	}
+
+	public String getDocumentName2() {
+		return documentName2;
+	}
+
+	public void setDocumentName2(String documentName2) {
+		this.documentName2 = documentName2;
+	}
+
+	public String getDocumentName3() {
+		return documentName3;
+	}
+
+	public void setDocumentName3(String documentName3) {
+		this.documentName3 = documentName3;
 	}
     
 

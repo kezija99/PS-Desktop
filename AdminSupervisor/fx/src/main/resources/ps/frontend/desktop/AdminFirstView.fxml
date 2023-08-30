@@ -249,7 +249,7 @@
                               <Label layoutX="779.0" layoutY="658.0" text="Pretrazi po prevozniku" />
                               <ChoiceBox fx:id="searchByTransporterChoiceBox" layoutX="911.0" layoutY="654.0" prefWidth="150.0" />
                            </children></AnchorPane>
-                        <AnchorPane fx:id="mainForm" prefHeight="774.0" prefWidth="1212.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="mainForm" prefHeight="774.0" prefWidth="1212.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <ImageView fitHeight="556.0" fitWidth="1091.0" layoutX="77.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -476,7 +476,7 @@
                               <Label fx:id="requestsInfoLabel" alignment="CENTER" layoutX="569.0" layoutY="495.0" prefHeight="17.0" prefWidth="380.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="terminalsForm" layoutX="10.0" layoutY="10.0" prefHeight="789.0" prefWidth="1223.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="terminalsForm" layoutX="10.0" layoutY="10.0" prefHeight="789.0" prefWidth="1223.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <TableView fx:id="terminalsTable" prefHeight="598.0" prefWidth="319.0">
                                  <columns>
